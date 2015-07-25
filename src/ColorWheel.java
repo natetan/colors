@@ -35,7 +35,7 @@ public class ColorWheel {
 	}
 
 	public boolean exists(String color) {
-		color = color.toLowerCase();
+		color = color.toLowerCase().trim();
 		for (int i = 0; i < this.list.size(); i++) {
 			if (color.equals(this.list.get(i))) {
 				return true;
@@ -53,14 +53,36 @@ public class ColorWheel {
 	}
 
 	public void add(String color) {
+		color = color.toLowerCase().trim();
 		this.list.add(color);
 	}
 	
 	public List reverse() {
 		List<String> newList = new ArrayList<String>();
-		for (int i = this.list.size(); i >= 0; i--) {
+		for (int i = this.list.size() - 1; i >= 0; i--) {
 			newList.add(this.list.get(i));
 		}
 		return newList;
+	}
+	
+	public String description(String color) {
+		if (color.equals("blue")) {
+			return "mew";
+		} else if (color.equals("green")) {
+			return "mean";
+		} else if (color.equals("red")) {
+			return "med";
+		} else if (color.equals("yellow")) {
+			return "mellow";
+		} else if (color.equals("black")) {
+			return "mac";
+		} else if (color.equals("white")) {
+			return "might";
+		} else if (color.equals("pink")) {
+			return "mink";
+		}
+		else {
+			return "nice";
+		}
 	}
 }
